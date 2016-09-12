@@ -14,7 +14,23 @@ routerApp.config(function($stateProvider, $urlRouterProvider){
 				templateUrl: 'template/home.html'
 			}
 		}
-	}).state('index.user', {
+	}).state('index.movie', {
+		url: '/movie',
+		views: {
+			'main@index': {
+				templateUrl: 'template/movie.html',
+				contrller: function($scope, $state){
+					$scope.addMovie = function(){
+						$state.go('index.movie.addMovie')
+					} 
+				}
+			}
+		}
+	}).state('index.movie.entry', {
+		url: '/entry',
+		templateUrl: 'template/entry.html'
+	})
+	.state('index.user', {
 		url: '/user',
 		views: {
 			'main@index': {
